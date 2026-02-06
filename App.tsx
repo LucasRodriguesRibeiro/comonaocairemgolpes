@@ -558,7 +558,7 @@ const Authority = () => (
       <div className="w-40 h-40 rounded-full bg-slate-200 shrink-0 border-4 border-emerald-500 p-2 overflow-hidden">
         <div className="w-full h-full rounded-full overflow-hidden transition-all duration-700">
           <img
-            src="/assets/images/lucas-rodrigues.jpg"
+            src="/assets/images/Lucas.png"
             alt="Lucas Rodrigues"
             className="w-full h-full object-cover"
             onError={(e) => { e.currentTarget.src = "https://ui-avatars.com/api/?name=Lucas+Rodrigues&background=059669&color=fff"; }}
