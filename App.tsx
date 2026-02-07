@@ -94,11 +94,12 @@ const Hero = () => (
     <div className="flex flex-col items-center text-center">
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-emerald-700 font-bold text-xs mb-8 uppercase tracking-widest shadow-sm border border-emerald-100">
         <Lock size={12} className="animate-pulse" />
-        Guia simples para pessoas comuns
+        Blinde seu celular em 1 hora
       </div>
 
       <h1 className="text-[2.6rem] font-black leading-[1.1] mb-6 text-slate-900 uppercase tracking-tighter">
-        APRENDA A <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-500">NÃO CAIR EM GOLPES</span> NO CELULAR
+        COMO <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-500">NÃO CAIR EM GOLPES</span> NO CELULAR
+        <span className="block text-[1.4rem] md:text-2xl mt-4 text-slate-700 leading-tight">E SE PROTEGER DE FRAUDES, PIX FALSO E WHATSAPP CLONADO</span>
       </h1>
 
       <p className="text-lg text-slate-600 mb-10 px-2 leading-relaxed font-semibold">
@@ -296,22 +297,22 @@ const Deliverables = () => (
 const InsideLook = () => (
   <section className="py-20 px-6 bg-white">
     <div className="max-w-4xl mx-auto">
-      <SectionTitle title="Uma espiadinha por dentro" subtitle="Veja o que você vai encontrar em cada capítulo do seu guia." />
+      <SectionTitle title="O que você vai dominar por dentro" subtitle="Não é apenas teoria. É um plano de ação prático para você retomar o controle total da sua vida digital." />
 
       <div className="mt-12 space-y-4">
         {[
-          { cap: "01", title: "O Mentalidade de Defesa", desc: "Como os golpistas escolhem as vítimas e como nunca ser uma delas." },
-          { cap: "02", title: "Cadeado no WhatsApp", desc: "Passo a passo visual para ativar todas as travas de segurança." },
-          { cap: "03", title: "Operação Pix Seguro", desc: "Como configurar limites e evitar transferências por engano ou pressão." },
-          { cap: "04", title: "Compras sem susto", desc: "A lista negra de sites e como saber se uma promoção é real." }
+          { cap: "01", title: "O Olhar do Golpista", desc: "Descubra o critério 'secreto' que os criminosos usam para escolher as vítimas e saiba como tirar o seu nome da lista deles hoje mesmo." },
+          { cap: "02", title: "Blindagem Anti-Clone", desc: "A configuração de 30 segundos que torna impossível alguém roubar o seu WhatsApp, mesmo que você caia em um link por engano." },
+          { cap: "03", title: "Banco à Prova de Pix", desc: "Como criar uma barreira digital no seu celular que impede que qualquer centavo saia da sua conta sem o seu comando real e consciente." },
+          { cap: "04", title: "O Detector de Fraudes", desc: "O método infalível para identificar em 3 segundos se aquele anúncio ou site é uma loja real ou uma armadilha para roubar seus dados." }
         ].map((item, i) => (
-          <div key={i} className="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 items-center">
-            <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black italic shrink-0">
+          <div key={i} className="flex gap-4 p-5 rounded-2xl bg-white border border-slate-100 items-center hover:shadow-md transition-all">
+            <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black italic shrink-0 shadow-lg">
               {item.cap}
             </div>
             <div>
-              <h4 className="font-extrabold text-slate-900 uppercase text-xs mb-1">{item.title}</h4>
-              <p className="text-slate-500 text-xs leading-tight">{item.desc}</p>
+              <h4 className="font-extrabold text-slate-900 uppercase text-xs mb-1 tracking-wider">{item.title}</h4>
+              <p className="text-slate-600 text-[11px] leading-relaxed font-bold">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -403,34 +404,35 @@ const Testimonials = () => (
 const Value = () => (
   <section className="py-20 px-6 bg-white relative">
     <div className="max-w-3xl mx-auto">
-      <SectionTitle title="Vale o investimento?" subtitle="Compare e veja o que faz mais sentido para você." />
+      <SectionTitle title="A decisão mais inteligente que você vai tomar hoje" subtitle="Compare o custo de estar protegido contra o risco real de ser a próxima vítima." />
 
       <div className="space-y-6">
         {/* Comparison Card 1 */}
-        <div className="p-6 rounded-3xl bg-red-50 border border-red-100 flex items-start gap-4">
-          <div className="bg-white p-2 rounded-xl text-red-500 shadow-sm shrink-0">
-            <AlertTriangle size={24} />
+        <div className="p-8 rounded-[2.5rem] bg-red-50 border border-red-100 flex items-start gap-4">
+          <div className="bg-white p-3 rounded-2xl text-red-600 shadow-sm shrink-0">
+            <AlertTriangle size={28} />
           </div>
           <div>
-            <h4 className="text-red-900 font-black uppercase italic text-sm mb-1">O Risco de não saber</h4>
-            <p className="text-red-800 text-sm leading-relaxed">Perder <strong>R$ 1.500 ou R$ 5.000</strong> em um golpe de Pix, ter o banco bloqueado e passar noites sem dormir.</p>
+            <h4 className="text-red-900 font-extrabold uppercase tracking-tight text-base mb-2">O Prejuízo de Viver Desprotegido</h4>
+            <p className="text-red-800 text-sm leading-relaxed font-medium">Ver as <strong>economias de uma vida sumirem em segundos</strong>, ter o WhatsApp roubado e passar meses tentando provar para o banco que você foi a vítima.</p>
           </div>
         </div>
 
         {/* Comparison Card 2 */}
-        <div className="p-6 rounded-3xl bg-emerald-50 border border-emerald-100 flex items-start gap-4">
-          <div className="bg-white p-2 rounded-xl text-emerald-600 shadow-sm shrink-0">
-            <ShieldCheck size={24} />
+        <div className="p-8 rounded-[2.5rem] bg-emerald-50 border border-emerald-100 flex items-start gap-4 shadow-xl shadow-emerald-900/5">
+          <div className="bg-white p-3 rounded-2xl text-emerald-600 shadow-sm shrink-0">
+            <ShieldCheck size={28} />
           </div>
           <div>
-            <h4 className="text-emerald-900 font-black uppercase italic text-sm mb-1">A Tranquilidade de saber</h4>
-            <p className="text-emerald-800 text-sm leading-relaxed">Investir apenas <strong>R$ 47</strong> para aprender a identificar qualquer golpe e proteger o que é seu.</p>
+            <h4 className="text-emerald-900 font-extrabold uppercase tracking-tight text-base mb-2">Sua Blindagem Vitalícia Agora</h4>
+            <p className="text-emerald-900 text-sm leading-relaxed font-bold">Investir apenas <strong>R$ 47</strong> (menos que um lanche) para ter o conhecimento definitivo que protege o seu dinheiro e o sossego da sua família para sempre.</p>
           </div>
         </div>
       </div>
 
-      <p className="text-center mt-10 text-slate-400 text-sm font-bold uppercase tracking-widest">
-        É o valor de uma pizza para proteger <br /> as economias de uma vida.
+      <p className="text-center mt-12 text-slate-500 text-xs font-black uppercase tracking-[0.2em] leading-loose">
+        O custo do conhecimento é uma pequena taxa única. <br />
+        O custo da ignorância pode ser o seu patrimônio.
       </p>
     </div>
   </section>
