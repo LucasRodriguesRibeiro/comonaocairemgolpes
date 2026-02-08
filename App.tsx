@@ -75,37 +75,35 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
 
 // --- Sections ---
 
-const Header = () => (
-  <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 bg-white/80 backdrop-blur-xl border-b border-white/20 py-4 px-6 flex justify-between items-center text-slate-900 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)]">
-    <div className="flex items-center gap-2">
-      <div className="bg-emerald-600 p-1.5 rounded-lg shadow-lg shadow-emerald-200">
-        <ShieldCheck className="text-white" size={20} />
-      </div>
-      <span className="font-extrabold tracking-tighter text-xl bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">BLINDAGEM DIGITAL</span>
-    </div>
-  </header>
-);
+
 
 // 1. HERO (PRIMEIRA DOBRA)
 const Hero = () => (
-  <section className="relative pt-32 pb-16 px-6 overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-white">
+  <section className="relative pt-16 pb-16 px-6 overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-white">
     <div className="absolute top-0 left-0 w-full h-96 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-emerald-100/50 via-transparent to-transparent -z-10"></div>
 
     <div className="flex flex-col items-center text-center">
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-emerald-700 font-bold text-xs mb-8 uppercase tracking-widest shadow-sm border border-emerald-100">
-        <Lock size={12} className="animate-pulse" />
-        Blinde seu celular em 1 hora
+      {/* Selo superior */}
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-emerald-700 font-bold text-[10px] mb-8 uppercase tracking-widest shadow-sm border border-emerald-100">
+        🛡️ Proteja seu celular em até 1 hora
       </div>
 
+      {/* HEADLINE PRINCIPAL */}
       <h1 className="text-[2.6rem] font-black leading-[1.1] mb-6 text-slate-900 uppercase tracking-tighter">
-        COMO <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-500">NÃO CAIR EM GOLPES</span> NO CELULAR
-        <span className="block text-[1.4rem] md:text-2xl mt-4 text-slate-700 leading-tight">E SE PROTEGER DE FRAUDES, PIX FALSO E WHATSAPP CLONADO</span>
+        ⚠️ Proteja seu celular <br /> contra golpes <br /> em apenas 1 hora
       </h1>
 
-      <p className="text-lg text-slate-600 mb-10 px-2 leading-relaxed font-semibold">
-        Proteja seu dinheiro, seu WhatsApp e sua família com um guia que fala a sua língua.
+      {/* SUBHEADLINE */}
+      <h2 className="text-xl text-slate-700 mb-6 px-2 leading-tight font-bold max-w-[320px] mx-auto normal-case">
+        Um guia simples e direto para evitar golpes de Pix, WhatsApp clonado e fraudes digitais comuns — mesmo que você não entenda de tecnologia.
+      </h2>
+
+      {/* TEXTO DE APOIO */}
+      <p className="text-sm text-slate-500 mb-10 px-2 leading-relaxed font-semibold max-w-[280px] mx-auto">
+        Evite prejuízos financeiros e proteja seu dinheiro, seu WhatsApp e sua família agora.
       </p>
 
+      {/* ELEMENTOS VISUAIS DA DOBRA */}
       <div className="relative w-full mb-10 group perspective animate-float">
         <div className="absolute inset-0 bg-emerald-500/10 blur-[60px] rounded-full"></div>
         <div className="relative z-10 p-2 bg-white/50 backdrop-blur-sm rounded-[2.5rem] border border-white/50 shadow-2xl">
@@ -116,7 +114,7 @@ const Hero = () => (
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const parent = e.currentTarget.parentElement;
-              if (parent) parent.innerHTML = '<div class="bg-slate-900 aspect-[4/3] rounded-[2rem] flex items-center justify-center text-emerald-500 font-black italic">PROJETO BLINDAGEM DIGITAL</div>';
+              if (parent) parent.innerHTML = '<div class="bg-slate-900 aspect-[4/3] rounded-[2rem] flex items-center justify-center text-emerald-500 font-black italic text-center p-6">PROJETO <br/> BLINDAGEM DIGITAL</div>';
             }}
           />
         </div>
@@ -132,102 +130,176 @@ const Hero = () => (
   </section>
 );
 
-// 2. DOBRA DA IDENTIFICAÇÃO COM A DOR
+// 2. DOBRA – PEDRA NO SAPATO (IDENTIFICAÇÃO COM A DOR)
 const PainPoint = () => (
   <section className="py-20 px-6 bg-white">
     <div className="max-w-4xl mx-auto">
       <SectionTitle
-        title="O perigo entra pelo celular"
-        subtitle="Os golpistas não precisam mais arrombar a porta da sua casa. Eles entram por estas situações:"
+        title="⚠️ Os golpes começam assim — pelo seu celular"
+        subtitle=""
       />
 
-      <div className="grid grid-cols-1 gap-5 mt-10">
-        <div className="p-6 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm flex items-start gap-4">
-          <div className="bg-red-50 text-red-500 p-3 rounded-2xl shadow-inner shrink-0">
-            <Smartphone size={24} />
+      <p className="text-lg text-slate-600 mb-10 text-center leading-relaxed font-medium">
+        Hoje, os golpistas não precisam mais arrombar portas. <br />
+        Eles entram quando você está distraído, com pressa ou tentando ajudar alguém.
+      </p>
+
+      <p className="text-sm text-slate-400 font-bold uppercase tracking-wider text-center mb-8">
+        Normalmente começa em situações comuns como estas:
+      </p>
+
+      <div className="grid grid-cols-1 gap-6">
+        {/* CARD 1 */}
+        <div className="p-8 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left transition-all hover:shadow-md">
+          <div className="bg-emerald-50 text-emerald-600 p-4 rounded-2xl shrink-0">
+            <Smartphone size={32} />
           </div>
           <div>
-            <h3 className="text-lg font-black text-slate-900 border-b-2 border-red-100 inline-block mb-2">Mensagem do WhatsApp</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">Fingindo ser seu filho ou parente pedindo dinheiro urgente para uma emergência falsa.</p>
+            <h3 className="text-xl font-black text-slate-900 mb-3 flex items-center justify-center md:justify-start gap-2">
+              📱 Mensagem no WhatsApp
+            </h3>
+            <p className="text-slate-600 leading-relaxed font-medium">
+              Você recebe uma mensagem dizendo: <br />
+              <span className="text-slate-900 italic">“Pai, troquei de número. Preciso de ajuda agora.”</span>
+            </p>
+            <p className="text-slate-500 text-sm mt-3 font-bold">
+              Na pressa, você responde… e o golpe já começou.
+            </p>
           </div>
         </div>
 
-        <div className="p-6 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm flex items-start gap-4">
-          <div className="bg-amber-50 text-amber-600 p-3 rounded-2xl shadow-inner shrink-0">
-            <CreditCard size={24} />
+        {/* CARD 2 */}
+        <div className="p-8 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left transition-all hover:shadow-md">
+          <div className="bg-amber-50 text-amber-600 p-4 rounded-2xl shrink-0">
+            <CreditCard size={32} />
           </div>
           <div>
-            <h3 className="text-lg font-black text-slate-900 border-b-2 border-amber-100 inline-block mb-2">Pix de "Urgência"</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">Histórias tristes que fazem você agir rápido e enviar dinheiro para criminosos.</p>
+            <h3 className="text-xl font-black text-slate-900 mb-3 flex items-center justify-center md:justify-start gap-2">
+              💸 Pix de “Urgência”
+            </h3>
+            <p className="text-slate-600 leading-relaxed font-medium">
+              Uma história triste, um pedido desesperado e a pressão para agir rápido.
+            </p>
+            <p className="text-slate-500 text-sm mt-3 font-bold">
+              Você faz o Pix — e o dinheiro some.
+            </p>
           </div>
         </div>
 
-        <div className="p-6 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm flex items-start gap-4">
-          <div className="bg-blue-50 text-blue-500 p-3 rounded-2xl shadow-inner shrink-0">
-            <MousePointerClick size={24} />
+        {/* CARD 3 */}
+        <div className="p-8 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-sm flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left transition-all hover:shadow-md">
+          <div className="bg-blue-50 text-blue-500 p-4 rounded-2xl shrink-0">
+            <MousePointerClick size={32} />
           </div>
           <div>
-            <h3 className="text-lg font-black text-slate-900 border-b-2 border-blue-100 inline-block mb-2">Promoção Boa Demais</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">Aquele produto muito barato que é só uma armadilha para roubar sua conta bancária.</p>
+            <h3 className="text-xl font-black text-slate-900 mb-3 flex items-center justify-center md:justify-start gap-2">
+              🎁 Promoção Boa Demais
+            </h3>
+            <p className="text-slate-600 leading-relaxed font-medium">
+              Um produto muito barato, um site bonito e a promessa de vantagem rápida.
+            </p>
+            <p className="text-slate-500 text-sm mt-3 font-bold">
+              Depois do pagamento, a conta bancária é esvaziada.
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="mt-12 p-8 rounded-[2.5rem] bg-slate-900 text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-4 opacity-10">
-          <ShieldAlert size={80} />
+      {/* FRASE DE IMPACTO FINAL */}
+      <div className="mt-16 p-10 rounded-[3rem] bg-slate-950 text-center relative overflow-hidden shadow-2xl">
+        <div className="absolute top-0 right-0 p-4 opacity-5">
+          <ShieldAlert size={120} />
         </div>
-        <p className="relative z-10 text-white font-bold italic text-lg leading-relaxed">
-          "Isso poderia acontecer comigo ou com alguém que eu amo hoje mesmo."
+        <p className="relative z-10 text-white font-black italic text-2xl md:text-3xl leading-tight uppercase tracking-tighter">
+          “Isso pode acontecer comigo <br /> ou com alguém que eu amo — hoje.”
         </p>
       </div>
     </div>
   </section>
 );
 
-// 3. DOBRA DA VERDADE SIMPLES
+// 3. DOBRA – TRANSIÇÃO DOR → SOLUÇÃO (A VERDADE SIMPLES)
 const SimpleTruth = () => (
-  <section className="py-20 px-6 bg-slate-950 text-white relative overflow-hidden">
-    <div className="absolute inset-0 bg-emerald-600/10 blur-[100px] -z-0"></div>
-    <div className="max-w-4xl mx-auto relative z-10">
-      <SectionTitle
-        title="A verdade simples"
-        subtitle=""
-        dark={true}
-      />
-      <div className="space-y-6 text-lg text-slate-300 leading-relaxed mt-4">
-        <p className="bg-white/5 p-6 rounded-3xl border border-white/10">Os golpes ficaram invisíveis. Os criminosos agora usam sistemas que enganam até os mais atentos.</p>
-        <p className="text-xl font-black text-emerald-400 text-center py-4 uppercase italic">Não é falta de inteligência.</p>
-        <p className="p-6">Pessoas honestas caem porque ninguém ensinou o que observar. É apenas falta de uma orientação que fale o seu português.</p>
+  <section className="py-24 px-6 bg-slate-950 text-white relative overflow-hidden">
+    {/* Efeito sutil de profundidade */}
+    <div className="absolute inset-0 bg-emerald-900/10 blur-[120px] -z-0"></div>
+
+    <div className="max-w-3xl mx-auto relative z-10 text-center">
+      <h2 className="text-3xl md:text-4xl font-black mb-10 uppercase tracking-tighter italic">
+        A verdade é simples
+      </h2>
+
+      <div className="space-y-8 text-lg md:text-xl text-slate-300 leading-relaxed">
+        <p>
+          Os golpes ficaram cada vez mais sofisticados. <br />
+          Hoje, os criminosos usam mensagens, sites e contatos que parecem 100% reais.
+        </p>
+
+        <p className="font-medium">
+          Mesmo pessoas atentas, cuidadosas e honestas estão caindo.
+        </p>
+
+        {/* FRASE DE DESTAQUE */}
+        <div className="py-8 my-10 border-y border-white/5">
+          <p className="text-3xl md:text-5xl font-black text-emerald-400 uppercase tracking-tight leading-none italic">
+            Isso não é falta <br /> de inteligência.
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          <p>
+            Ninguém te ensinou o que observar. <br />
+            Ninguém explicou os sinais certos para identificar um golpe a tempo.
+          </p>
+
+          <p className="text-white font-bold bg-white/5 py-4 px-6 rounded-2xl inline-block border border-white/10">
+            O problema não é você. <br />
+            É a falta de uma orientação simples, clara e em português direto.
+          </p>
+        </div>
+
+        <p className="text-emerald-500 font-black uppercase tracking-widest text-sm pt-8 animate-pulse">
+          E é exatamente isso que você vai ter a partir de agora.
+        </p>
       </div>
     </div>
   </section>
 );
 
-// 5. DOBRA – O QUE A PESSOA VAI APRENDER
+// 4. DOBRA – O QUE VOCÊ PASSA A CONSEGUIR FAZER
 const Learning = () => (
   <section className="py-24 px-4 bg-slate-50">
     <div className="max-w-4xl mx-auto">
       <SectionTitle
-        title="O que você vai aprender"
-        subtitle="Pequenos cuidados que fazem uma diferença enorme na sua segurança."
+        title="O que você passa a conseguir fazer"
+        subtitle="Pequenas ações que mudam completamente a sua segurança no celular."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
         {[
-          "Identificar golpes rapidamente",
-          "Evitar Pix fraudado",
-          "Proteger o seu WhatsApp",
-          "Comprar online com mais segurança",
-          "Saber o que fazer se algo der errado",
-          "Como blindar seus aplicativos de banco"
-        ].map((text, i) => (
-          <div key={i} className="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-sm border border-slate-100">
-            <div className="bg-emerald-100 text-emerald-600 p-1 rounded-full">
+          { title: "Reconhecer golpes em segundos", desc: "Mesmo quando a mensagem parece verdadeira." },
+          { title: "Evitar Pix fraudado", desc: "Identificando pedidos falsos antes de agir." },
+          { title: "Proteger seu WhatsApp", desc: "Contra clonagem e acessos indevidos." },
+          { title: "Comprar online com mais segurança", desc: "Sem cair em promoções falsas." },
+          { title: "Saber exatamente o que fazer se algo der errado", desc: "Sem pânico e sem perder tempo." },
+          { title: "Blindar seus aplicativos de banco", desc: "Com configurações simples e eficazes." }
+        ].map((item, i) => (
+          <div key={i} className="bg-white p-6 rounded-2xl flex items-start gap-4 shadow-sm border border-slate-100">
+            <div className="bg-emerald-100 text-emerald-600 p-1.5 rounded-full shrink-0">
               <CheckCircle size={20} />
             </div>
-            <span className="font-bold text-slate-800">{text}</span>
+            <div>
+              <h4 className="font-black text-slate-800 text-base leading-tight">{item.title}</h4>
+              <p className="text-slate-500 text-sm mt-1 font-medium">{item.desc}</p>
+            </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 text-center">
+        <p className="text-slate-600 font-bold leading-relaxed max-w-2xl mx-auto italic">
+          Essas ações não exigem conhecimento técnico nem aplicativos complicados. <br />
+          São cuidados simples que qualquer pessoa consegue aplicar em menos de 1 hora.
+        </p>
       </div>
     </div>
   </section>
@@ -293,105 +365,148 @@ const Deliverables = () => (
   </section>
 );
 
-// 6.5. DOBRA – O QUE TEM DENTRO (VISÃO INTERNA)
+// 5. DOBRA – O QUE VOCÊ PASSA A DOMINAR (VISÃO INTERNA)
 const InsideLook = () => (
   <section className="py-20 px-6 bg-white">
     <div className="max-w-4xl mx-auto">
-      <SectionTitle title="O que você vai dominar por dentro" subtitle="Não é apenas teoria. É um plano de ação prático para você retomar o controle total da sua vida digital." />
+      <SectionTitle
+        title="O que você passa a dominar por dentro"
+        subtitle="Não é teoria e não é curso. São ações práticas para você assumir o controle da sua segurança digital em pouco tempo."
+      />
 
       <div className="mt-12 space-y-4">
         {[
-          { cap: "01", title: "O Olhar do Golpista", desc: "Descubra o critério 'secreto' que os criminosos usam para escolher as vítimas e saiba como tirar o seu nome da lista deles hoje mesmo." },
-          { cap: "02", title: "Blindagem Anti-Clone", desc: "A configuração de 30 segundos que torna impossível alguém roubar o seu WhatsApp, mesmo que você caia em um link por engano." },
-          { cap: "03", title: "Banco à Prova de Pix", desc: "Como criar uma barreira digital no seu celular que impede que qualquer centavo saia da sua conta sem o seu comando real e consciente." },
-          { cap: "04", title: "O Detector de Fraudes", desc: "O método infalível para identificar em 3 segundos se aquele anúncio ou site é uma loja real ou uma armadilha para roubar seus dados." }
+          { cap: "01", title: "O olhar do golpista", desc: "Você passa a identificar rapidamente quem é alvo fácil e como tirar seu nome dessa lista." },
+          { cap: "02", title: "Blindagem anti-clone", desc: "Configurações simples que dificultam ao máximo a clonagem do seu WhatsApp — mesmo em erros comuns." },
+          { cap: "03", title: "Banco à prova de Pix", desc: "Ajustes práticos no celular que criam uma barreira contra transferências indevidas." },
+          { cap: "04", title: "Detector de fraudes", desc: "Um checklist rápido para saber, em poucos segundos, se um anúncio, site ou mensagem é golpe." }
         ].map((item, i) => (
-          <div key={i} className="flex gap-4 p-5 rounded-2xl bg-white border border-slate-100 items-center hover:shadow-md transition-all">
-            <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black italic shrink-0 shadow-lg">
+          <div key={i} className="flex gap-4 p-6 rounded-2xl bg-white border border-slate-100 items-center hover:shadow-md transition-all">
+            <div className="w-14 h-14 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black italic shrink-0 shadow-lg text-lg">
               {item.cap}
             </div>
             <div>
               <h4 className="font-extrabold text-slate-900 uppercase text-xs mb-1 tracking-wider">{item.title}</h4>
-              <p className="text-slate-600 text-[11px] leading-relaxed font-bold">{item.desc}</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed font-bold">{item.desc}</p>
             </div>
           </div>
         ))}
       </div>
+
+      <div className="mt-12 text-center">
+        <p className="text-slate-500 font-bold italic text-sm">
+          Tudo explicado em português claro, <br />
+          sem termos técnicos e sem complicação.
+        </p>
+      </div>
     </div>
   </section>
 );
 
 
-// 7. DOBRA – PARA QUEM É / PARA QUEM NÃO É
+// 6. DOBRA – PARA QUEM É / PARA QUEM NÃO É
 const Eligibility = () => (
-  <section className="py-16 px-6 bg-slate-50">
-    <div className="max-w-4xl mx-auto grid grid-cols-1 gap-8">
-      <div className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100">
-        <h3 className="text-2xl font-black text-emerald-600 mb-8 uppercase tracking-tighter italic">É para você se:</h3>
-        <ul className="space-y-4 text-slate-600 font-medium">
-          <li className="flex gap-3">
-            <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-            <span>Você sente medo ao ver um número desconhecido no Zap.</span>
-          </li>
-          <li className="flex gap-3">
-            <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-            <span>Você usa Pix mas sempre confere 10 vezes com medo.</span>
-          </li>
-          <li className="flex gap-3">
-            <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-            <span>Você quer proteger seus pais ou netos de criminosos.</span>
-          </li>
+  <section className="py-20 px-6 bg-slate-50">
+    <div className="max-w-4xl mx-auto flex flex-col gap-10">
+      {/* É PARA VOCÊ SE */}
+      <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
+        <h3 className="text-2xl font-black text-emerald-600 mb-8 uppercase tracking-tighter italic flex items-center gap-3">
+          <CheckCircle2 className="shrink-0" size={28} />
+          É para você se:
+        </h3>
+        <ul className="space-y-6">
+          {[
+            "Já ficou inseguro ao receber mensagem ou ligação de número desconhecido.",
+            "Usa Pix, mas sempre confere tudo duas ou três vezes com medo de errar.",
+            "Tem receio de clicar em links, anúncios ou promoções na internet.",
+            "Quer proteger seus pais, filhos ou netos de golpes digitais.",
+            "Prefere prevenir do que correr atrás do prejuízo depois."
+          ].map((text, i) => (
+            <li key={i} className="flex gap-4 items-start text-slate-700 font-bold leading-relaxed">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2.5 shrink-0" />
+              <span>{text}</span>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <div className="bg-slate-900 p-10 rounded-3xl shadow-xl text-white">
-        <h3 className="text-2xl font-black text-red-400 mb-8 uppercase tracking-tighter italic">NÃO é para você se:</h3>
-        <ul className="space-y-4 text-slate-400 font-medium">
-          <li className="flex gap-3">
-            <AlertTriangle size={20} className="text-red-500 shrink-0" />
-            <span>Você é um expert em tecnologia e já sabe tudo.</span>
-          </li>
-          <li className="flex gap-3">
-            <AlertTriangle size={20} className="text-red-500 shrink-0" />
-            <span>Você acha que nunca vai ser enganado e não precisa aprender.</span>
-          </li>
+      {/* NÃO É PARA VOCÊ SE */}
+      <div className="bg-slate-900 p-10 rounded-[3rem] shadow-xl text-white">
+        <h3 className="text-2xl font-black text-red-400 mb-8 uppercase tracking-tighter italic flex items-center gap-3">
+          <AlertTriangle className="shrink-0" size={28} />
+          NÃO é para você se:
+        </h3>
+        <ul className="space-y-6">
+          {[
+            "Acha que nunca vai cair em golpe.",
+            "Gosta de arriscar e “ver no que dá”.",
+            "Procura algo técnico, cheio de termos complicados."
+          ].map((text, i) => (
+            <li key={i} className="flex gap-4 items-start text-slate-400 font-bold leading-relaxed">
+              <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5 shrink-0" />
+              <span>{text}</span>
+            </li>
+          ))}
         </ul>
+      </div>
+
+      {/* Frase de Fechamento */}
+      <div className="text-center mt-6">
+        <p className="text-slate-600 font-black italic text-lg uppercase tracking-tight">
+          Se você se identificou com 2 ou mais itens acima, <br />
+          <span className="text-emerald-600">este guia foi feito para você.</span>
+        </p>
       </div>
     </div>
   </section>
 );
 
-// 7.5. DOBRA – DEPOIMENTOS WHATSAPP STYLE
+// 7. DOBRA – QUEM JÁ SE PROTEGEU (PROVA SOCIAL)
 const Testimonials = () => (
   <section className="py-20 px-6 bg-emerald-50">
     <div className="max-w-4xl mx-auto">
-      <SectionTitle title="Quem já se protegeu" subtitle="Veja o que nossos alunos estão enviando no nosso grupo." />
+      <SectionTitle
+        title="Quem já se protegeu com o guia"
+        subtitle="Veja o que pessoas comuns estão dizendo depois de aplicar o conteúdo no próprio celular."
+      />
 
       <div className="space-y-6 mt-12 px-2">
         {/* WhatsApp Bubble 1 */}
-        <div className="flex flex-col items-start">
-          <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-md border border-slate-100 relative max-w-[90%]">
+        <div className="flex flex-col items-start translate-x-[-8px]">
+          <div className="bg-white p-5 rounded-2xl rounded-tl-none shadow-md border border-slate-100 relative max-w-[90%]">
             <span className="block text-[10px] font-black text-emerald-600 mb-1 uppercase tracking-widest">Dona Maria Rita</span>
-            <p className="text-sm text-slate-700 leading-relaxed italic">"Lucas, querido! O guia é maravilhoso. Consegui trancar meu WhatsApp igual você ensinou. Me sinto muito mais segura agora, obrigada!"</p>
-            <div className="text-[9px] text-slate-400 text-right mt-1">14:20 ✓✓</div>
+            <p className="text-sm text-slate-700 leading-relaxed italic font-medium">
+              “Lucas, querido! O guia é maravilhoso. Consegui travar meu WhatsApp do jeito que você explicou e já me sinto muito mais <strong>segura</strong> no dia a dia. Obrigada!”
+            </p>
+            <div className="text-[10px] text-slate-400 text-right mt-2 flex items-center justify-end gap-1">
+              14:20 <span className="text-blue-500 text-xs">✓✓</span>
+            </div>
           </div>
         </div>
 
         {/* WhatsApp Bubble 2 */}
         <div className="flex flex-col items-start translate-x-4">
-          <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-md border border-slate-100 relative max-w-[90%]">
+          <div className="bg-white p-5 rounded-2xl rounded-tl-none shadow-md border border-slate-100 relative max-w-[90%]">
             <span className="block text-[10px] font-black text-blue-600 mb-1 uppercase tracking-widest">Sr. José Carlos</span>
-            <p className="text-sm text-slate-700 leading-relaxed italic">"Finalmente alguém que fala a nossa língua. Não tem aquelas palavras chatas de computador. Já li e já arrumei as travas do meu banco."</p>
-            <div className="text-[9px] text-slate-400 text-right mt-1">16:45 ✓✓</div>
+            <p className="text-sm text-slate-700 leading-relaxed italic font-medium">
+              “Finalmente alguém que fala a nossa língua. Nada de palavras difíceis. <strong>Em poucos minutos</strong> já arrumei as travas do meu banco.”
+            </p>
+            <div className="text-[10px] text-slate-400 text-right mt-2 flex items-center justify-end gap-1">
+              16:45 <span className="text-blue-500 text-xs">✓✓</span>
+            </div>
           </div>
         </div>
 
         {/* WhatsApp Bubble 3 */}
         <div className="flex flex-col items-start translate-x-2">
-          <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-md border border-slate-100 relative max-w-[90%]">
+          <div className="bg-white p-5 rounded-2xl rounded-tl-none shadow-md border border-slate-100 relative max-w-[90%]">
             <span className="block text-[10px] font-black text-purple-600 mb-1 uppercase tracking-widest">Dona Helena</span>
-            <p className="text-sm text-slate-700 leading-relaxed italic">"Comprei para os meus pais e eles amaram. Design muito limpo e fácil de ler. Nota 10!"</p>
-            <div className="text-[9px] text-slate-400 text-right mt-1">19:12 ✓✓</div>
+            <p className="text-sm text-slate-700 leading-relaxed italic font-medium">
+              “Comprei para meus pais e eles amaram. Muito <strong>fácil</strong> de ler, tudo bem explicado. Nota 10!”
+            </p>
+            <div className="text-[10px] text-slate-400 text-right mt-2 flex items-center justify-end gap-1">
+              19:12 <span className="text-blue-500 text-xs">✓✓</span>
+            </div>
           </div>
         </div>
       </div>
@@ -403,43 +518,51 @@ const Testimonials = () => (
 // 8. DOBRA – ANCORAGEM DE VALOR
 const Value = () => (
   <section className="py-20 px-6 bg-white relative">
-    <div className="max-w-3xl mx-auto">
-      <SectionTitle title="A decisão mais inteligente que você vai tomar hoje" subtitle="Compare o custo de estar protegido contra o risco real de ser a próxima vítima." />
+    <div className="max-w-4xl mx-auto">
+      <SectionTitle
+        title="A decisão mais inteligente de hoje"
+        subtitle="Compare o custo de se proteger agora com o prejuízo real de cair em um golpe."
+      />
 
       <div className="space-y-6">
-        {/* Comparison Card 1 */}
+        {/* Bloco 1 – Prejuízo Real */}
         <div className="p-8 rounded-[2.5rem] bg-red-50 border border-red-100 flex items-start gap-4">
           <div className="bg-white p-3 rounded-2xl text-red-600 shadow-sm shrink-0">
             <AlertTriangle size={28} />
           </div>
           <div>
-            <h4 className="text-red-900 font-extrabold uppercase tracking-tight text-base mb-2">O Prejuízo de Viver Desprotegido</h4>
-            <p className="text-red-800 text-sm leading-relaxed font-medium">Ver as <strong>economias de uma vida sumirem em segundos</strong>, ter o WhatsApp roubado e passar meses tentando provar para o banco que você foi a vítima.</p>
+            <h4 className="text-red-900 font-extrabold uppercase tracking-tight text-base mb-3 italic">🔺 O prejuízo de ficar desprotegido</h4>
+            <div className="text-red-800 text-sm leading-relaxed font-medium space-y-2">
+              <p>Perder dinheiro em segundos. <br /> Ter o WhatsApp clonado. <br /> Passar semanas tentando provar ao banco que você foi vítima de um golpe.</p>
+              <p className="font-black pt-2 uppercase text-[10px] tracking-wider">O prejuízo não é só financeiro. É emocional também.</p>
+            </div>
           </div>
         </div>
 
-        {/* Comparison Card 2 */}
-        <div className="p-8 rounded-[2.5rem] bg-emerald-50 border border-emerald-100 flex items-start gap-4 shadow-xl shadow-emerald-900/5">
+        {/* Bloco 2 – Proteção */}
+        <div className="p-8 rounded-[2.5rem] bg-emerald-50 border border-emerald-100 flex items-start gap-4 shadow-xl shadow-emerald-900/5 transition-transform hover:scale-[1.01]">
           <div className="bg-white p-3 rounded-2xl text-emerald-600 shadow-sm shrink-0">
             <ShieldCheck size={28} />
           </div>
           <div>
-            <h4 className="text-emerald-900 font-extrabold uppercase tracking-tight text-base mb-2">Sua Blindagem Vitalícia Agora</h4>
-            <p className="text-emerald-900 text-sm leading-relaxed font-bold">Investir apenas <strong>R$ 47</strong> (menos que um lanche) para ter o conhecimento definitivo que protege o seu dinheiro e o sossego da sua família para sempre.</p>
+            <h4 className="text-emerald-900 font-extrabold uppercase tracking-tight text-base mb-3 italic">🛡️ Sua blindagem digital agora</h4>
+            <div className="text-emerald-900 text-sm leading-relaxed font-bold space-y-2">
+              <p>Investimento único de <strong>R$ 47</strong> <br /> — menos que um lanche.</p>
+              <p>Para ter acesso imediato a um guia simples que protege seu dinheiro, seu WhatsApp e traz tranquilidade para sua família.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <p className="text-center mt-12 text-slate-500 text-xs font-black uppercase tracking-[0.2em] leading-loose">
-        O custo do conhecimento é uma pequena taxa única. <br />
-        O custo da ignorância pode ser o seu patrimônio.
+        O custo do conhecimento é pago uma vez. <br />
+        <span className="text-red-600/70">O prejuízo de um golpe pode durar anos.</span>
       </p>
     </div>
   </section>
 );
 
-// 9. DOBRA – PREÇO + CTA
-// 9. DOBRA – PREÇO + CTA
+// 9. DOBRA FINAL – PREÇO + CTA
 const Offer = () => (
   <section id="offer" className="py-20 px-6 bg-slate-950 text-white relative">
     <div className="absolute inset-0 bg-emerald-600/5 blur-[100px]"></div>
@@ -447,8 +570,8 @@ const Offer = () => (
 
       <div className="bg-white rounded-[4rem] overflow-hidden shadow-2xl text-slate-950">
         <div className="bg-slate-900 p-8 text-center border-b border-white/5">
-          <div className="inline-block px-4 py-1.5 bg-amber-500 text-slate-900 rounded-full font-black text-[10px] uppercase mb-4 shadow-lg shadow-amber-500/20">OFERTA ESPECIAL 2026</div>
-          <h3 className="text-white text-3xl font-black uppercase italic tracking-tighter">Seu Pacote de Segurança</h3>
+          <div className="inline-block px-4 py-1.5 bg-amber-500 text-slate-900 rounded-full font-black text-[10px] uppercase mb-4 shadow-lg shadow-amber-500/20">🔥 Oferta especial 2026</div>
+          <h3 className="text-white text-3xl font-black uppercase italic tracking-tighter">Seu pacote de proteção agora</h3>
         </div>
 
         <div className="p-8 md:p-12">
@@ -473,22 +596,37 @@ const Offer = () => (
           </div>
 
           <div className="text-center mb-10">
-            <p className="text-sm font-black text-emerald-600 uppercase mb-2 tracking-widest">Acesso Vitalício Por Apenas</p>
+            <p className="text-sm font-black text-emerald-600 uppercase mb-2 tracking-widest">Acesso vitalício por apenas</p>
             <div className="flex justify-center items-start gap-1">
               <span className="text-2xl font-black mt-4">R$</span>
               <span className="text-[7rem] font-black tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-slate-900 to-slate-700">47</span>
               <div className="flex flex-col items-start mt-4">
                 <span className="text-2xl font-black">,00</span>
-                <span className="text-slate-400 text-[10px] font-black uppercase">Taxa única</span>
+                <span className="text-slate-400 text-[10px] font-black uppercase tracking-widest">Pagamento único</span>
               </div>
             </div>
+            <p className="text-slate-400 text-xs font-bold mt-4">Comece a se proteger agora, em menos de 2 minutos.</p>
           </div>
 
           <div className="flex flex-col items-center gap-8">
             <a href="https://pay.hotmart.com/T104309163R?off=7o9k0p9q" className="w-full flex justify-center" target="_blank" rel="noopener noreferrer">
-              <CTAButton text="Garantir meu acesso" subtext="Inicie sua proteção em menos de 2 minutos" className="w-full" />
+              <CTAButton text="🟢 Começar minha proteção agora" subtext="Acesso imediato e vitalício" className="w-full" />
             </a>
-            <div className="space-y-6 w-full">
+
+            {/* Microgarantias */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+              <div className="flex items-center gap-2 text-[10px] font-black text-slate-600 uppercase tracking-widest">
+                <CheckCircle size={14} className="text-emerald-500" /> Acesso imediato
+              </div>
+              <div className="flex items-center gap-2 text-[10px] font-black text-slate-600 uppercase tracking-widest">
+                <CheckCircle size={14} className="text-emerald-500" /> Sem mensalidade
+              </div>
+              <div className="flex items-center gap-2 text-[10px] font-black text-slate-600 uppercase tracking-widest">
+                <CheckCircle size={14} className="text-emerald-500" /> Uso simples e prático
+              </div>
+            </div>
+
+            <div className="space-y-6 w-full pt-4">
               <div className="flex items-center justify-center gap-6 border-t border-slate-100 pt-8">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-4" alt="Visa" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-8" alt="Mastercard" />
@@ -628,7 +766,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50 font-['Inter',_sans-serif] selection:bg-emerald-100 selection:text-emerald-900 antialiased">
       {/* Mobile-centric container */}
       <div className="max-w-md mx-auto bg-white min-h-screen shadow-2xl relative overflow-x-hidden">
-        <Header />
+
         <main>
           <Hero />
           <PainPoint />
