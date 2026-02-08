@@ -29,12 +29,12 @@
 }
 </script>
   <link rel="stylesheet" href="/index.css">
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code - Pixel 1 -->
   <script>
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -43,10 +43,27 @@
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2640264706359969');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code - Pixel 1 -->
+
+  <!-- Meta Pixel Code - Pixel 2 -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '26773164702286419');
     fbq('track', 'PageView');
   </script>
-  <!-- End Meta Pixel Code -->
+  <!-- End Meta Pixel Code - Pixel 2 -->
 </head>
 
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
